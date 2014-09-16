@@ -97,11 +97,13 @@ class Recipe(object):
             script.append('make doctest')
         if 'html' in self.outputs:
             script.append('make html')
+        if 'rst2pdf' in self.outputs:
+            script.append('make rst2pdf')
         if 'latex' in self.outputs:
             script.append('make latex')
         if 'epub' in self.outputs:
             script.append('make epub')
-        if 'pdf' in self.outputs:
+        if 'pdf' in self.outputs and not 'rst2pdf' in self.outputs:
             latex = ''
             if 'latex' not in self.outputs:
                 latex = 'make latex && '

@@ -33,6 +33,7 @@ help:
 \t@echo "  epub       to make an epub"
 \t@echo "  latex      to make LaTeX files, you can set PAPER=a4 or PAPER=letter"
 \t@echo "  latexpdf   to make LaTeX files and run them through pdflatex"
+\t@echo "  rst2pdf    to make rst2pdf"
 \t@echo "  text       to make text files"
 \t@echo "  man        to make manual pages"
 \t@echo "  texinfo    to make Texinfo files"
@@ -112,6 +113,11 @@ latex:
 \t@echo "Build finished; the LaTeX files are in $(BUILDDIR)/latex."
 \t@echo "Run \\`make' in that directory to run these through (pdf)latex" \\
 \t      "(use \\`make latexpdf' here to do that automatically)."
+
+rst2pdf:
+\t$(SPHINXBUILD) -b pdf $(ALLSPHINXOPTS) $(BUILDDIR)/pdf
+\t@echo
+\t@echo "Build finished; the PDF files are in $(BUILDDIR)/pdf."
 
 latexpdf:
 \t$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
